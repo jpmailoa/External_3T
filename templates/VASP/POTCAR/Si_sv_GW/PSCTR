@@ -1,0 +1,24 @@
+# this is the most accurate Si_sv_GW potential
+# it should be essentially exact
+#
+   TITEL  = PAW_PBE Si_sv_GW 29Sep2009
+   LPAW   = T
+   RWIGS  =    2.48  nn distance   
+   
+   RCLOC  =    1.7
+   LCOR   =   .TRUE.                  
+   QCUT   =    0                      
+   NE     =   400                     
+   EMIN = -7
+   EMAX =  8
+   RDEPT = 1.5
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   1.1
+ 0     0.0     23   1.4 
+ 1     0.0     23   1.4
+ 1     0.0     23   1.4 
+ 2    -0.1     23   1.6
+ 2     6.0     23   1.6
+ 3    -0.1     23   1.6

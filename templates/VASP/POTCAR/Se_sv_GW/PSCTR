@@ -1,0 +1,28 @@
+# larger core radii and softer potentials
+# are difficult to realize
+#
+   TITEL  = PAW_PBE Se_sv_GW 21Nov2013
+   LPAW   = T
+   RPACOR =    1.40
+   RWIGS  =    2.1   nn distance
+
+   RCLOC  =    1.30
+   EMIN   =   -4.5
+   EMAX   =    20
+   NE     =   800
+   LCOR   =   .TRUE.
+  QCUT = 0
+
+   Description
+ l     E      TYP  RCUT    TYP  RCUT
+ 0     0.0     23   1.25
+ 0     0.0     23   1.45
+ 0    14.0     23   1.45
+ 1     0.0     23   1.54
+ 1     0.0     23   1.54
+ 1     8.0     23   1.54
+ 2     0.0     23   1.80
+ 2    -1.0     23   1.80
+ 2     7.0     23   1.80
+ 3     2.0     23   2.10
+ 3     8.0     23   2.10

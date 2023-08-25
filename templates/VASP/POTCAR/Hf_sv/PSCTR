@@ -1,0 +1,22 @@
+   TITEL  = PAW_PBE Hf_sv 10Jan2008 GW suitable
+   LPAW   = T
+   RPACOR =    2.20
+   RWIGS  =    3.05  nn distance   
+                                      
+#   RCLOC  =    2.20
+   ICORE  =    3
+   EMIN   =   -5                      
+   EMAX   =    8
+   NE     =   100                     
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   2.1
+ 0     2.0     23   2.1
+ 1     0.0     23   2.1
+ 1     2.0     23   2.1
+ 2     0.0     23   2.4
+ 2     1.0     23   2.4
+ 3     1.0     23   2.4

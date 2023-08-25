@@ -1,0 +1,28 @@
+# after a lot of playing, this should be a good PSCTR for
+# correlated Li calculations
+# two s projectors at low energies, a third at high
+# to get good derivatives at high energies
+# no hard projectors, and fairly low cutoff of 400 eV
+#
+# update 25 Mar2010, 3rd s reference energy moved to 13 Ry
+#
+   TITEL  = PAW_PBE Li_sv_GW 25Mar2010
+   LPAW   = T
+   RWIGS  =    1.60  nn distance
+
+   EMIN   = -4
+   EMAX   =  16
+   RCLOC  =  1.0
+   NE     =   400
+   LCOR   =   .TRUE.
+  QCUT = 0 
+   RDEPT  =  1.3
+
+   Description
+ l     E      TYP  RCUT    TYP  RCUT
+ 0     0.0     23   1.20
+ 0     0.0     23   1.20
+ 0    13.0     23   1.30
+ 1     0.0     23   1.50
+ 1     8.0     23   1.50
+ 2     6.0     23   1.50

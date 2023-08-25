@@ -1,0 +1,26 @@
+# the old N potential was not sufficiently accurate 
+# and a decrease of the core radii was required
+# projectors have nice nodal structure
+
+   TITEL  = PAW_PBE C_h_GW 23May2013
+   LPAW   = T
+   RWIGS  =    1.2   nn distance   
+  
+   RCLOC =  0.8                                  
+   EMAX   =    40
+   NE     =   1000                    
+   LCOR   =   .TRUE.                  
+   QCUT = 0 
+   RPACOR =   0.8
+   RDEPT = 1.0
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   1.0
+ 0     6.0     23   1.0
+ 0    15.0     23   1.0
+ 1     0.0     23   1.1
+ 1    15.0     23   1.1
+ 1    28.0     23   1.1
+ 2     6.0     23   1.1
+ 2    15.0     23   1.1

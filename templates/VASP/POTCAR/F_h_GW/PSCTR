@@ -1,0 +1,27 @@
+# the old F potential was not sufficiently accurate 
+# and a decrease of the core radii was required
+# projectors have nice nodal structure
+# RPACOR reduced  to 0.5, RDEPT defaulted
+# improved description of dimer
+
+   TITEL  = PAW_PBE F_h_GW 20May2014
+   LPAW   = T
+   RWIGS  =    1.20  nn distance   
+  
+   RCLOC =  0.8                                   
+   EMIN   =   -3
+   EMAX   =    40
+   NE     =   400                     
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+   RPACOR =   0.5
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   0.8
+ 0     8.0     23   0.8
+ 1     0.0     23   1.05
+ 1    14.0     23   1.05
+ 1    28.0     23   1.05
+ 2     6.0     23   1.05
+ 2    15.0     23   1.05

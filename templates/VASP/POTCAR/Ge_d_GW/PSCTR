@@ -1,0 +1,34 @@
+#
+# this potential was extensively tested in GW calculations
+# against similar potentials with 3s in the vancancy
+# a NC first projector is preferable  and improves scattering
+# properties 
+# (although 0     0.0     23   1.6 yields almost same results)
+# to make the second s partial wave not too hard it needs
+# to be US
+# the d radius is one the large side. For very accurate
+# results the radius should be decreased to 1.8 a.u.
+#
+   TITEL  = PAW_PBE Ge_d_GW 19Mar2013
+   LPAW   = T
+   RPACOR =    1.8 
+   RWIGS  =    2.5   nn distance   
+                                      
+   ICORE  =       3                    
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+   NE     =   1000
+   EMIN   =  -3
+   EMAX   =   12
+
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     7    2.3
+ 0     4.0     23   1.6
+ 1     0.0     23   2.3
+ 1     6.0     23   2.3
+ 2     0.0     23   2.0
+ 2    -2.1     23   2.0
+ 2     3.0     23   2.0
+ 3    -0.1     7    2.3

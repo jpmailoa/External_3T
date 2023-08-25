@@ -1,0 +1,21 @@
+   TITEL  = PAW_PBE Ga_GW 22Mar2012
+   LPAW   = T
+   RPACOR =    2.17
+   RWIGS  =    2.65  nn distance   
+                                      
+   ICORE  =       3                    
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+   NE     =   100                     
+   EMIN =   -1
+   EMAX  =   8
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   2.6
+ 0     5.0     23   2.3
+ 1     0.0     23   2.6
+ 1     5.0     23   2.6
+ 2     0.4     23   2.7
+ 2     3.0     23   2.7
+ 3    -0.1     23   2.6

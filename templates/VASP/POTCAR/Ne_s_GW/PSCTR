@@ -1,0 +1,23 @@
+# soft GW potential
+# this is actually the original Ne GW potential
+#
+   TITEL  = PAW_PBE Ne_s_GW 02Oct2006
+   LPAW   = T
+   RPACOR =    1.40
+   RWIGS  =    1.70  nn distance   
+   
+   ICORE  =    2                                   
+   EMIN   =   -3.0
+   EMAX   =    7.0
+   NE     =   100                     
+   LCOR   =   .TRUE.                  
+   RDEPT  =   1.8
+  QCUT = 0 
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   1.4
+ 0     6.0     23   1.4
+ 1     0.0     23   1.8
+ 1     3.0     23   1.8
+ 2     0.5     23   1.8

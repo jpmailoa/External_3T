@@ -1,0 +1,25 @@
+   TITEL  = PAW_PBE In_sv_GW 22Nov2013
+   LPAW   = T
+   RPACOR =    1.40
+   RWIGS  =    2.2   nn distance
+
+   RCLOC  =    1.40
+   EMIN   =   -4 
+   EMAX   =    20
+   NE     =   800
+   LCOR   =   .TRUE.
+  QCUT = 0
+
+   Description
+ l     E      TYP  RCUT    TYP  RCUT
+ 0     0.0     23   1.65
+ 0     0.0     23   1.80
+ 0    15.0     23   1.65
+ 1     0.0     23   1.80
+ 1     0.0     23   2.00
+ 1    10.0     23   2.00
+ 2     0.0     23   2.00
+ 2     2.0     23   2.00
+ 2     9.0     23   2.00
+ 3     2.0     23   2.00
+ 3     5.0     23   2.00

@@ -1,0 +1,18 @@
+   TITEL  = PAW_PBE At 21May2007
+   LPAW   = T
+   RPACOR =    2.20
+   RWIGS  =    3.09  nn distance   
+                                      
+   ICORE  =       3                    
+   NE     =   100                     
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   2.4
+ 0     0.0     23   2.4
+ 1     0.0     23   2.4
+ 1     0.0     23   2.4
+ 2    -0.2     23   2.8
+ 3    -0.1     23   2.4

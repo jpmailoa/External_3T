@@ -1,0 +1,30 @@
+# this potential was generated for highly accurate 
+# correlation energies
+# it posses many additional projectors at high energies
+# and should thus supply a superior description of correlation energies
+#
+# update 25Mar2010 core radius RCLOC decreased 
+#
+   TITEL  = PAW_PBE Li_AE_GW 25Mar2010
+   LPAW   = T
+   RWIGS  =    1.60  nn distance
+
+   EMIN   = -4
+   EMAX   =  25
+   RCLOC  =  1.0
+   NE     =    400
+   LCOR   =   .TRUE.
+  QCUT = 0 
+   RDEPT  =  1.3
+
+   Description
+ l     E      TYP  RCUT    TYP  RCUT
+ 0     0.0     23   1.20
+ 0     0.0     23   1.20
+ 0    13.0     23   1.30
+ 1     0.0     23   1.50
+ 1     9.0     23   1.50
+ 1    22.0     23   1.50
+ 2     4.0     23   1.50
+ 2    15.0     23   1.50
+ 3     9.0     23   1.50

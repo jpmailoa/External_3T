@@ -1,0 +1,27 @@
+# the old O potential was not sufficiently accurate 
+# and a decrease of the core radii was required
+# compares very well with even harder O_GW_nc potential
+# projectors have nice nodal structure
+
+   TITEL  = PAW_PBE O_h_GW 22May2013
+   LPAW   = T
+   RWIGS  =    1.20  nn distance   
+  
+   RCLOC =  0.9                                   
+   EMAX   =    40
+   NE     =   400                     
+   LCOR   =   .TRUE.                  
+  QCUT = 0 
+   RPACOR =   0.8
+   RDEPT = 1.0
+                                      
+   Description                        
+ l     E      TYP  RCUT    TYP  RCUT  
+ 0     0.0     23   1.0
+ 0     3.0     23   1.0
+ 0    40.0     23   1.0
+ 1     0.0     23   1.1
+ 1    12.0     23   1.1
+ 1    32.0     23   1.1
+ 2     6.0     23   1.1
+ 2    12.0     23   1.1

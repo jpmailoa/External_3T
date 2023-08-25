@@ -1,0 +1,64 @@
+[
+ {"lattice_poscar" : {"file" : "input/BigCube_EC_DMC_VC_PF6/POSCAR_BigCube_Li2.vasp",
+                      "override" : "input/BigCube_EC_DMC_VC_PF6/BigCube_movable_charge_Li2.override"},
+  "molecule_xyz" : [{"file" : "input/EC.xyz",
+                                "count" : 10},
+                              {"file" : "input/DMC.xyz",
+                                "count" : 10},
+                              {"file" : "input/VC.xyz",
+                                "count" : 1},
+                              {"file" : "input/PF6.xyz",
+                                "count" : 1}],
+  "mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step1",
+  "print_freq" : 1},
+ 
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step2",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step3",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step4",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step5",
+  "print_freq" : 1},
+
+ {"lattice_poscar" : {"file" : "input/BigCube_EC_DMC_VC_PF6/POSCAR_BigCube_Li2.vasp",
+                      "override" : "input/BigCube_EC_DMC_VC_PF6/BigCube_movable_charge_Li2.override",
+                      "VASP_template" : "templates/VASP/BigCube_EC_DMC_VC_PF6/"},
+  "mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step1",
+  "print_freq" : 1},
+
+ {"mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step2",
+  "print_freq" : 1},
+
+ {"mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step3",
+  "print_freq" : 1},
+
+ {"mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step4",
+  "print_freq" : 1},
+
+ {"mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step5",
+  "print_freq" : 1} 
+]

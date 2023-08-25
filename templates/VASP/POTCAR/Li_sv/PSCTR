@@ -1,0 +1,24 @@
+#
+# This potential was generated to describe LiH with great accuracy
+# the bond lengh is now predicted to be 1.606 to compared with 1.604
+# using G03 and QZP
+# the crucial point is the cutoff for the 2s wavefunction
+# chosing it larger than worsens the description
+# already for 1.75 the LiH bondlength increases to 1.609
+#
+   TITEL  = PAW_PBE Li_sv 10Sep2004
+   LPAW   = T
+   RWIGS  =    2.05  nn distance
+
+   EMIN   = -4
+   ICORE  =       2
+   NE     =   100
+   LCOR   =   .TRUE.
+  QCUT = 0 
+
+   Description
+ l     E      TYP  RCUT    TYP  RCUT
+ 0     0.0     23   1.40
+ 0     0.0     23   1.70
+ 1     0.0     23   1.40
+ 2     0.0     23   1.40
