@@ -1,0 +1,38 @@
+[
+ {"lattice_poscar" : {"file" : "input/FAPbI3_defect_TE4PBA/POSCAR_FAPbI3.vasp",
+                      "override" : "input/FAPbI3_defect_TE4PBA/FAPbI3_surface_vacancy_charge.override"},
+  "molecule_xyz" : [{"file" : "input/TE4PBA.xyz",
+                                "count" : 1}],
+  "mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step1",
+  "print_freq" : 1},
+ 
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step2",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step3",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step4",
+  "print_freq" : 1},
+
+ {"mode" : "FF",
+  "n_epoch" : 200,
+  "out_tag" : "FF_step5",
+  "print_freq" : 1},
+
+ {"lattice_poscar" : {"file" : "input/FAPbI3_defect_TE4PBA/POSCAR_FAPbI3.vasp",
+                      "override" : "input/FAPbI3_defect_TE4PBA/FAPbI3_surface_vacancy_movable_group.override",
+                      "VASP_template" : "templates/VASP/FAPbI3_defect_TE4PBA/"},
+  "mode" : "VASP",
+  "n_epoch" : 50,
+  "out_tag" : "VASP_step1",
+  "print_freq" : 1} 
+]

@@ -13,7 +13,7 @@
                                 "count" : $$CO3$$},
                               {"file" : "input/Ethylene.xyz",
                                 "count" : $$Ethylene$$},
-                              {"file" : "input/oEC_minus2.lmp",
+                              {"file" : "input/oEC_radical_minus1_minus2.lmp",
                                 "count" : $$oEC$$}],
   "mode" : "FF",
   "n_epoch" : 200,

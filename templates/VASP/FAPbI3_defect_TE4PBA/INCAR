@@ -1,0 +1,44 @@
+# Startparameter for this run:
+   SYSTEM  =  PSC
+   ISTART  =  0
+   ICHARG  =  2 
+   PREC    =  Normal
+  
+# Electronic Relaxation 1
+   ENCUT   =  500     # 29.40 Ry    5.42 a.u.  10.50 17.15 10.50*2*pi/ulx,y,z # energy cutoff in eV
+   GGA_COMPAT  = F
+   NELM    =  600  
+
+# Ionic relaxation
+#   EDIFFG  =  -0.07   # stopping-criterion for ionic upd  
+#   NSW     =  2000    # number of steps for ionic upd
+#   IBRION  =  2       # ionic relaxation 0=MD 1=quasi-New 2=CG
+#   POTIM   =  0.3
+#   ISIF    =  2       # calculate stress and what to relax 2= force and stress tensor and relax ions
+   ISYM    =  0
+   LREAL   =  Auto
+
+# DOS related values:
+   ISMEAR  =  0       # partial occupancies -5=Blochl(energy) -4=tet -1=fermi 0=gaussian >0 MP(force)
+   SIGMA   =  0.05    # broadening in eV -4=tet -1=fermi 0=gaussian
+
+# Electronic relaxation 2 (details)
+   AMIN    =  0.01
+   BMIX    =  0.01
+   
+# Write flags
+   LVTOT   =  T
+   LWAVE   =  F
+#  LORBIT  =  11      # 0 simple, 1 ext, 2 COOP (PROOUT)
+
+# Dipole corrections
+   LDIPOL  =  T
+   IDIPOL  =  3
+
+# Efficiency
+#  NCORE   =  4
+
+# van der Waals related
+   LVDW    =  T
+   IVDW    =  12
+
