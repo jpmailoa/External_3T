@@ -1,0 +1,2 @@
+sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 172.21.80.239:/ooru7mzs /localfolder
+https://console.cloud.tencent.com/cos/bucket?bucket=catl-perovskite-1300241787&region=ap-beijing

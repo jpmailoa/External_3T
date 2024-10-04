@@ -1,0 +1,77 @@
+LAMMPS data file Created by Jonathan Mailoa based on LigParGen - (Written by Leela S. Dodda)
+
+      4 atoms
+      3 bonds
+      3 angles
+      0 dihedrals
+      1 impropers
+ 
+      4 atom types
+      3 bond types
+      3 angle types
+      0 dihedral types
+      1 improper types
+ 
+   -0.266390    49.733610 xlo xhi
+   -0.453290    49.546710 ylo yhi
+   -4.110460    45.889540 zlo zhi
+
+Masses
+
+       1     12.011  
+       2     15.999
+       3     15.999
+       4     15.999
+
+Pair Coeffs 
+
+       1      0.070  3.5500000 
+       2      0.190  2.9400000 
+       3      0.190  2.9400000 
+       4      0.190  2.9400000 
+
+Bond Coeffs 
+
+       1   361.0000     1.3042 
+       2   361.0000     1.3042 
+       3   361.0000     1.3042 
+
+Angle Coeffs 
+
+       1     83.000    120.000
+       2     83.000    120.000
+       3     83.000    120.000
+
+Dihedral Coeffs
+
+
+Improper Coeffs 
+
+       1     10.500      -1       2
+
+Atoms 
+
+     1      1      1 0.50320000    1.000  1.00000  0.00000
+     2      1      2 -0.58030000   -0.266  1.00000  0.00000
+     3      1      3 -0.58030000    1.648  1.00000 -1.18280
+     4      1      4 -0.58030000    1.754  1.00128  1.01549
+
+Bonds 
+
+     1      1      1      2
+     2      2      1      3
+     3      3      1      4
+
+Angles 
+
+     1      1      2      1      3
+     2      2      2      1      4
+     3      3      3      1      4
+
+Dihedrals
+
+
+Impropers
+
+     1      1      1      2      3      4 
+
