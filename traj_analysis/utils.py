@@ -578,7 +578,7 @@ def plot_rxn_changed_mols(df, charge_dict={}, reverse=False):
             break
     df['excess_Li'] = n_excess_Li
     df.drop(columns=['config_id', 'rxn', 'rdc', 'rxn_wt_pid', 
-                     'rdc_wt_pid', 'rxn_changed_bonds'], inplace=True)
+                     'rdc_wt_pid', 'rxn_changed_bonds'], inplace=True, errors='ignore')
     gb = df.groupby(['excess_Li']).agg(['mean', partial(np.std, ddof=0)])
     x = gb.index.values
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
