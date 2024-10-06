@@ -1,6 +1,18 @@
 # External 3T
 
+This repository accompanies the paper publication <b>3T-VASP: Fast ab-initio electrochemical reactor via multi-scale gradient energy minimization</b> by J.P. Mailoa, X. Li, and S. Zhang at Nature Communications. <br />
+Related links: <br />
+&ensp;Publication link:  <br />
+&ensp;CodeOcean compute capsule: https://codeocean.com/capsule/9554531/tree/v1 <br />
+&ensp;Github snapshot with DOI on Zenodo:  <br />
+
+![screenshot](./paper_resources/Figures/Figure_1_vFinal.emf)
+
 This repository allows the usage of 3T structure optimization / energy minimization algorithm on solid surface/liquid (multi molecule) interface. Depending on your system setup, this can effectively be used for bulk liquid system as well. The 3T structure transformation is performed within PyTorch, while the structure energy evaluation is done using an external software outside of PyTorch such as VASP, etc. In fact we also use PyTorch as an 'external calculator' to calculate classical force field energy in this repository.
+
+Follow the instructions below to run example code. The raw and source data related to the manuscript publication can be found in the `paper_resources` folder.
+
+Another example on how to couple the 3T optimizer with other ab-initio ASE calculators such as NWChem (3T-NWChem) is available in the `Simple_3T` folder.
 
 ## Quick Start
 
