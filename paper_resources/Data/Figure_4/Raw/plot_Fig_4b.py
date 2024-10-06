@@ -110,6 +110,6 @@ def plot_rxn_changed_mols(df, charge_dict={}, reverse=False):
     plt.show()
 
 # df = pd.read_csv('full_rxn_statistics_all.csv', index_col=0)
-df = pd.read_csv('merged_df.csv', index_col=0)
+df = pd.read_csv('df_merge.csv', index_col=0)
 charge_dict = {'PF6': -1, 'CO3_minus2': -2, 'oEC_radical_minus1_minus2': -1, 'Li': 1}
 plot_rxn_changed_mols(df, charge_dict=charge_dict, reverse=True)
