@@ -1,6 +1,6 @@
 # External 3T
 
-This repository accompanies the paper publication <b>3T-VASP: Fast ab-initio electrochemical reactor via multi-scale gradient energy minimization</b> by J.P. Mailoa, X. Li, and S. Zhang at Nature Communications. <br />
+This repository accompanies the paper publication <b>3T-VASP: Fast Ab-initio Electrochemical Reactor via Multi-Scale Gradient Energy Minimization</b> by <b>J.P. Mailoa, X. Li, and S. Zhang</b> at Nature Communications. <br />
 Related links: <br />
 &ensp;Publication link:  <br />
 &ensp;CodeOcean compute capsule: https://codeocean.com/capsule/9554531/tree/v1 <br />
