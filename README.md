@@ -6,7 +6,7 @@ Related links: <br />
 &ensp;CodeOcean compute capsule: https://codeocean.com/capsule/9554531/tree/v1 <br />
 &ensp;Github snapshot with DOI on Zenodo:  <br />
 
-![screenshot](./paper_resources/Figures/Figure_1_vFinal.tif)
+![screenshot](./paper_resources/Figures/Overview.png)
 
 This repository allows the usage of 3T structure optimization / energy minimization algorithm on solid surface/liquid (multi molecule) interface. Depending on your system setup, this can effectively be used for bulk liquid system as well. The 3T structure transformation is performed within PyTorch, while the structure energy evaluation is done using an external software outside of PyTorch such as VASP, etc. In fact we also use PyTorch as an 'external calculator' to calculate classical force field energy in this repository.
 
