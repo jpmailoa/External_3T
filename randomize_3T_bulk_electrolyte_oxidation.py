@@ -4,13 +4,13 @@ from main_run_utils import multiple_runs
 
 def config_modify_func(template):
     # Prepare random config file
-    n_Li = str(random.randrange(2,9))
+    n_Li = str(random.randrange(1,5))
     n_VC = str(random.randrange(1,4))
     n_PF6 = str(1)
     n_CO3 = str(random.randrange(1,3))
     n_Ethylene = n_CO3
     n_oEC = str(random.randrange(1,3))
-    n_EC = str( 10 - int(n_CO3) - int(n_oEC) )
+    n_EC = str( 10 )
     config_str = template.replace('$$Li$$', n_Li)
     config_str = config_str.replace('$$VC$$', n_VC)
     config_str = config_str.replace('$$PF6$$', n_PF6)
