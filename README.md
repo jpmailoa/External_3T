@@ -2,7 +2,7 @@
 
 This repository accompanies the paper publication <b>3T-VASP: Fast Ab-initio Electrochemical Reactor via Multi-Scale Gradient Energy Minimization</b> by <b>J.P. Mailoa, X. Li, and S. Zhang</b> at Nature Communications. <br />
 Related links: <br />
-&ensp;Publication link:  <br />
+&ensp;Publication link: https://www.nature.com/articles/s41467-024-54453-1 <br />
 &ensp;CodeOcean compute capsule: [![Open in Code Ocean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/9554531/tree/v1) <br /> 
 &ensp;Zenodo Github v1.0.0 snapshot: [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.13895562.svg)](https://doi.org/10.5281/zenodo.13895562) <br />
 
