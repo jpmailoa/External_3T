@@ -1,7 +1,8 @@
-import os
+import os, sys
 import rdkit
 from rdkit import Chem
 from rdkit.Chem.Lipinski import RotatableBondSmarts
+from GL_data import data
 import numpy as np
 import json, pickle, random
 
@@ -16,7 +17,7 @@ def get_rotatable_bond(infile, outfile):
             f.write('%d,%d,%d,1\n'%(i+1,j,k))
         f.close()
     except AttributeError:
-        print(infile)
+        print('Failure when extracting structure rotatable bond:', infile)
     return
 
 def build_new_rotbond(lig_ori, lig_rotbond, converted_ligand_input, converted_ligand_data, converted_ligand_rotbond):
