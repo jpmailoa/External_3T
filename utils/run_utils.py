@@ -184,7 +184,7 @@ def create_model(block, base_model=None):
     pack_molecules(lattice_data, molecules_data)    # this will change molecules_data coordinates
     # Build model
     model = PotentialModel(lattice_data, molecules_data, block['mode'])
-    if len(replace_idxs)!=0 and block['mode'] == 'VASP':
+    if len(replace_idxs)!=0 and block['mode'] in ['VASP']:  # include all the white-listed modes here, currently just 'VASP'
         for ridx, fn in zip(replace_idxs, origin_files):
             suffix = fn.split('.')[-1]
             if suffix == 'xyz':
