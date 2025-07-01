@@ -9,6 +9,8 @@ import ase
 import ase.io as io
 import time
 import numpy as np
+from ase.data import atomic_masses, chemical_symbols
+
 
 def parse_config(config_json):
     blocks = json.load(open(config_json,'r'))
@@ -71,7 +73,8 @@ def pack_molecules(lattice_data, molecules_data):
     os.chdir(temp_dir)
     os.system('rm -r *')
 
-    mass_elem_dict = {1:'H', 7:'Li', 12:'C', 16:'O', 19:'F', 31:'P'}
+    #mass_elem_dict = {1:'H', 7:'Li', 12:'C', 16:'O', 19:'F', 31:'P'}
+    mass_elem_dict = {round(atomic_masses[i]): chemical_symbols[i] for i in range(len(chemical_symbols)) if i!=0}
     with open('pack_in.inp', 'w') as f:
         f.write('tolerance 2.0\n')
         f.write('filetype xyz\n')
@@ -145,6 +148,17 @@ def pack_molecules(lattice_data, molecules_data):
     return
     
 
+def get_order_list(atoms):
+    elem_set = sorted(set(atoms.get_chemical_symbols()), 
+                      key=atoms.get_chemical_symbols().index)
+    new_order = []
+    for elem in elem_set:
+        for i in range(len(atoms)):
+            if elem == atoms.get_chemical_symbols()[i]:
+                new_order.append(i)
+    return new_order
+
+
 def create_model(block, base_model=None):
     # Build lattice data
     lattice_data = convert_lattice(block['lattice_poscar']['file'],
@@ -153,14 +167,41 @@ def create_model(block, base_model=None):
                                    PWMAT_template = block['lattice_poscar']['PWMAT_template'])
     # Build molecules data
     molecules_data = []
+    replace_idxs = []
+    origin_files = []
+    idx = 1
     for moldict in block['molecule_xyz']:
+        mol_fn = moldict['file']
+        if 'replace_on_FF' in moldict:
+            origin_files+=[moldict['file']]*moldict['count']
+            mol_fn = moldict['replace_on_FF']
+            replace_idxs+=list(range(idx, idx+moldict['count']))
         for i in range(moldict['count']):
-            molecule_data = convert_molecule(moldict['file'],
+            molecule_data = convert_molecule(mol_fn,
                                              override = moldict['override'])
             molecules_data.append( molecule_data )
+        idx += moldict['count']
     pack_molecules(lattice_data, molecules_data)    # this will change molecules_data coordinates
     # Build model
     model = PotentialModel(lattice_data, molecules_data, block['mode'])
+    if len(replace_idxs)!=0 and block['mode'] == 'VASP':
+        for ridx, fn in zip(replace_idxs, origin_files):
+            suffix = fn.split('.')[-1]
+            if suffix == 'xyz':
+                atoms = io.read(fn, index='-1')
+            elif suffix == 'lmp':
+                atoms = sio.read(fn, format='lammps-data', index='-1')
+                new_atom_nums = [np.where(np.abs(atomic_masses-x)<1e-5)[0][0] 
+                                 for x in atoms.get_masses()]
+                atoms.set_atomic_numbers(new_atom_nums)
+            atoms = atoms[get_order_list(atoms)]
+            _idx = model.atom_type[model.atom_molid==ridx].tolist()
+            unique_idx = sorted(set(_idx), key=_idx.index)
+            unique_idx_pos = [_idx.index(x) for x in unique_idx]
+            new_mass = atomic_masses[atoms.get_atomic_numbers()]
+            unique_mass = new_mass.take(unique_idx_pos)
+            model.atom_mass[unique_idx] = torch.tensor(unique_mass, 
+                    dtype=model.atom_mass.dtype, device=model.atom_mass.device)
     if not (base_model is None):
         # Replace coordinates with those of base_model
         old_atom_pos = base_model.atom_pos.detach().cpu()
@@ -216,10 +257,12 @@ def run_model(model_3T, optimizers, block):
     schedulers = None
 
     # determine atom elements for printing convenience later on
-    mass_elem_dict = {1:'H', 7:'Li', 9:'Be', 11:'B', 12:'C', 14:'N', 16:'O', 19:'F',
-                    23:'Na', 24:'Mg', 27:'Al', 28:'Si', 31:'P', 32:'S', 35:'Cl',
-                    39:'K', 40:'Ca', 70:'Ga', 73:'Ge', 75:'As', 79:'Se', 80:'Br',
-                    85:'Rb', 88:'Sr', 115:'In', 119:'Sn', 122:'Sb', 128:'Te', 127:'I', 207:'Pb'} # this is rounded mass to elem format
+    #mass_elem_dict = {1:'H', 7:'Li', 9:'Be', 11:'B', 12:'C', 14:'N', 16:'O', 19:'F',
+    #                23:'Na', 24:'Mg', 27:'Al', 28:'Si', 31:'P', 32:'S', 35:'Cl',
+    #                39:'K', 40:'Ca', 70:'Ga', 73:'Ge', 75:'As', 79:'Se', 80:'Br',
+    #                85:'Rb', 88:'Sr', 115:'In', 119:'Sn', 122:'Sb', 128:'Te', 127:'I', 207:'Pb'} 
+    mass_elem_dict = {round(atomic_masses[i]): chemical_symbols[i] for i in range(len(chemical_symbols)) if i!=0}
+    # this is rounded mass to elem format
     atom_type = model_3T.atom_type.cpu().detach().numpy().astype(int) # this is already in 0 to n_type-1 format
     temp = model_3T.atom_mass.detach().cpu().numpy().astype(float)
     type_elem_dict = {}
@@ -270,25 +313,4 @@ def run_model(model_3T, optimizers, block):
     for optimizer in optimizers:
         optimizer.zero_grad()
 
-##    with open(out_outE,'w') as f:
-##        for i in range(out_hist.shape[0]):
-##            f.write(str(out_hist[i])+'\n')
-
-    # We only add printout of the last xyz
-##    atoms = ase.Atoms(symbols=atom_elem, positions=xyz_hist[n_epoch])
-##    io.write(out_xyz, atoms, format='xyz', append=False)
-
-    # Use this section if we want to print out the entire minimization trajectory instead
-##    for i in range(xyz_hist.shape[0]):
-##        atoms = ase.Atoms(symbols=atom_elem, positions=xyz_hist[i])
-##        if i == 0: io.write(out_xyz, atoms, format='xyz', append=False)
-##        else: io.write(out_xyz, atoms, format='xyz', append=True)
-
     return
-
-#blocks = parse_config('configs/example_Li110_EC_DMC_VC_v1.json')
-#model = None
-#for block in blocks:
-#    model = create_model(block, base_model=model)
-#    optimizers = create_optimizers(model, block)
-#    run_model(model, optimizers, block)
