@@ -1,6 +1,6 @@
 Tencent is pleased to support the open source community by making External_3T available. 
 
-Copyright (C) 2025 Tencent.  All rights reserved. The below software in this distribution may have been modified by Tencent. All Tencent Modifications are Copyright (C) Tencent.
+Copyright (C) 2025 Tencent.  All rights reserved. The below software in this distribution may have been modified by Tencent ("Tencent Modifications"). All Tencent Modifications are Copyright (C) Tencent.
 
 External_3T is licensed under the MIT License except for the third-party components listed below.
 
@@ -19,7 +19,7 @@ Other dependencies and licenses:
 
 
 Open Source Software Licensed under the MIT License:
-The below software in this distribution may have been modified by Tencent. All Tencent Modifications are Copyright (C) 2025 Tencent.
+The below software in this distribution may have been modified by Tencent ("Tencent Modifications"). All Tencent Modifications are Copyright (C) 2025 Tencent.
 --------------------------------------------------------------------
 1. InterMol
 Copyright (c) 2013-2016 Michael Shirts
