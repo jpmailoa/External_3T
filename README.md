@@ -19,9 +19,10 @@ Another example on how to couple the 3T optimizer with other ab-initio ASE calcu
 ### Install Conda Dependencies
 Start by setting up your conda environment and Python dependencies:
 ```
-conda create --name 3T python=3.8
+conda create --name 3T python=3.11
 conda activate 3T
-conda install --file requirements.txt -c pytorch -c conda-forge -c rdkit
+conda install mamba -c conda-forge
+mamba install --file requirements.txt -c pytorch -c conda-forge -c rdkit
 ```
 <b>Install the conda dependencies separately if necessary. </b>
 
