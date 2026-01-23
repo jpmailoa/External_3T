@@ -9,6 +9,9 @@ from swiss_util import swiss_func
 from charmm2gromacs_util import chm2gmx_func
 from GL_data import data
 from process_molecule_utils import get_rotatable_bond, build_new_rotbond, cleanup_workspace, check_cache, store_cache
+from process_molecule_from_lmp import convert_molecule as convert_molecule_lmp
+from ase.data import chemical_symbols
+
 
 def prelig4swiss(infile, outfile):
     outfile_0 = infile.replace('mol2', 'mol2')
@@ -23,9 +26,11 @@ def prelig4swiss(infile, outfile):
     block = [x.split('\t') for x in block]
 
     block_new = []
-    atom_count = {'C':1, 'N':1, 'O':1, 'S':1, 'P':1, 'F':1, 'Br':1, 'Cl':1, 'I': 1,   
-                  'Li':1, 'Na':1, 'K':1, 'Mg':1, 'Al':1, 'Si':1,
-                  'Ca':1, 'Cr':1, 'Mn':1, 'Fe':1, 'Co':1, 'Cu':1}
+    #atom_count = {'C':1, 'N':1, 'O':1, 'S':1, 'P':1, 'F':1, 'Br':1, 'Cl':1, 'I': 1,   
+    #              'Li':1, 'Na':1, 'K':1, 'Mg':1, 'Al':1, 'Si':1,
+    #              'Ca':1, 'Cr':1, 'Mn':1, 'Fe':1, 'Co':1, 'Cu':1}
+    atom_count = {x: 1 for x in chemical_symbols if x not in ['X', 'H']}
+    atom_count.update({x.upper(): 1 for x in chemical_symbols if x not in ['X', 'H']})
     for i in block:
         at = i[1].strip()
         if 'H' not in at:
@@ -101,12 +106,16 @@ def convert_gromacs_lammps_ligand(lig_itp, lig_prm, lig_gro, lig_top):
     lig_gro_full = os.path.join(cwd, lig_gro)
     lig_top_full = os.path.join(cwd, lig_top)
     os.chdir('../utils/Convert_Gromacs_LAMMPS')
-    os.system(' '.join(['python Convert_Gromacs_LAMMPS.py',
+    os.system(' '.join([sys.executable+' Convert_Gromacs_LAMMPS.py',
                         lig_gro_full, lig_top_full, cwd]))
     os.chdir(cwd)
     return
 
 def convert_molecule(mol_xyz, override=None):
+    if '.lmp' == mol_xyz[-4:]:
+        mol_data = convert_molecule_lmp(mol_xyz, override)
+        return mol_data
+    
     mol_data = check_cache(mol_xyz)
 
     if mol_data is None:
@@ -143,4 +152,3 @@ def convert_molecule(mol_xyz, override=None):
         store_cache(full_mol_xyz_path, mol_data)
         
     return mol_data
-    
