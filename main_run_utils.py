@@ -34,10 +34,10 @@ def multiple_runs(run_num, tag, config_modify_func):
         # Store results
         result_dir = 'results/' + tag + '/'
         if not os.path.isdir(result_dir):
-            os.mkdir(result_dir)
+            os.makedirs(result_dir)
         result_dir = result_dir + config_json[:-5].split('_')[-1] + '/'
         if not os.path.isdir(result_dir):
-            os.mkdir(result_dir)
+            os.makedirs(result_dir)
         os.system('mv FF_step* ' + result_dir)
         os.system('mv VASP_step* ' + result_dir)
         os.system('mv default.log ' + result_dir)
@@ -46,4 +46,5 @@ def multiple_runs(run_num, tag, config_modify_func):
         json_str = json.loads(config_str)
         poscar_file = json_str[0]['lattice_poscar']['file']
         os.system('cp ' + poscar_file + ' ' + result_dir)
+
     return
